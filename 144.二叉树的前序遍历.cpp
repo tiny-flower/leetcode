@@ -18,16 +18,24 @@
  */
 class Solution {
 public:
+    // vector<int> res;
+    // vector<int> preorderTraversal(TreeNode* root) {
+    //     traverse(root);
+    //     return res;
+    // }
+    // void traverse(TreeNode* root){
+    //     if(root == nullptr) return;
+    //     res.push_back(root->val);
+    //     traverse(root->left);
+    //     traverse(root->right);
+    // }
     vector<int> res;
-    vector<int> preorderTraversal(TreeNode* root) {
-        traverse(root);
-        return res;
-    }
-    void traverse(TreeNode* root){
-        if(root == nullptr) return;
+    vector<int> preorderTraversal(TreeNode* root){
+        if(root == nullptr) return res;
         res.push_back(root->val);
-        traverse(root->left);
-        traverse(root->right);
+        preorderTraversal(root->left);
+        preorderTraversal(root->right);
+        return res;
     }
 };
 // @lc code=end
